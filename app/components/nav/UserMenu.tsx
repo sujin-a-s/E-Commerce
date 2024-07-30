@@ -23,7 +23,7 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
         <>
         <div className="relative z-30">
             <div className="p-2 border-[1px] border-slate-100 flex  items-center gap-1 rounded-full cursor-pointer hover:shadow-md transition text-slate-700" onClick={toggleOpen}>
-                <Avatar />
+                <Avatar src={currentUser?.image}/>
                 <AiFillCaretDown />
             </div>
             {isOpen && (
@@ -37,7 +37,7 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
                                 <MenuItem onClick={toggleOpen}>Admin</MenuItem>
                             </Link>
                             <hr />
-                            <MenuItem onClick={()=>{
+                            <MenuItem onClick={async()=>{
                                 toggleOpen();
                                 signOut()
                             }}>Logout</MenuItem>
