@@ -32,3 +32,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+prisma 
+
+1) prisma folder at root level --> prisma schema. --> make the model --->install the required shit by looking at the docs
+
+2) pages folderr at the root level --> api --> auth --> [..nextauth].ts ---> google providers and shit
+
+3) lisbs ---> prismadb.ts ----> best practice to instatiate prisma client
