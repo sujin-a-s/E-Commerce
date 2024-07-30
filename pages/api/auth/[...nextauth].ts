@@ -2,7 +2,7 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
-import CredentialsProvider from "next-auth/providers/google"
+import CredentialsProvider from "next-auth/providers/credentials"; 
 import prisma from "@/libs/prismadb";
 import bcrypt from "bcrypt"
 
@@ -50,7 +50,10 @@ export default NextAuth({
                     throw new Error ("Invalid email or password")
                 }
 
-                return user
+                return {
+                    ...user,
+                    id: user.id.toString()
+                }
             }
         })
     ],

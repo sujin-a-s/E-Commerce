@@ -42,3 +42,7 @@ prisma
 2) pages folderr at the root level --> api --> auth --> [..nextauth].ts ---> google providers and shit
 
 3) lisbs ---> prismadb.ts ----> best practice to instatiate prisma client
+
+4)get the url
+
+5)npx prisma db push ...you will get env variavle are loaded from .env
