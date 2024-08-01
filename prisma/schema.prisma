@@ -39,7 +39,6 @@ model User {
 
   accounts  Account[]
   orders    Order[]
-  addresses Address[]
 }
 
 model Order {
@@ -51,24 +50,10 @@ model Order {
   deliveryStatus   String?
   createdAt        DateTime  @default(now())
   paymentIntentId  String    @unique
-  products         Json
-  addressId        Int?
+  products         Json      // This will store the CartProductType[] as JSON
+  address          Json?     // This will store the Address type as JSON
   
   user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  address          Address?  @relation(fields: [addressId], references: [id])
-}
-
-model Address {
-  id          Int     @id @default(autoincrement())
-  street      String
-  city        String
-  state       String
-  postalCode  String
-  country     String
-  userId      Int
-
-  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  orders      Order[]
 }
 
 enum Role {

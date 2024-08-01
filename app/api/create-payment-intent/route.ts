@@ -14,7 +14,7 @@ const calculateOrderAmount = (items: CartProductType[]): number => {
         return acc + itemTotal
     },0)
     const price  = Math.floor(totalPrice)
-    return price*100
+    return price
 }
 
 export async function POST(request: Request) {

@@ -73,6 +73,7 @@ const CheckoutClient = () => {
       const handleSetPaymentSuccess = useCallback((value : boolean)=>{
         setPaymentSucess(value)
       },[])
+      
     return (
         <div className="w-full">
           {clientSecret && cartProducts && (
