@@ -10,7 +10,9 @@ type CartContextType = {
     handleCartQtyIncrease : (product : CartProductType) => void;
     handleCartQtyDecrease : (product : CartProductType) => void;
     handleClearCart : () => void;
-    cartTotalAmount : number
+    cartTotalAmount : number;
+    paymentIntent : string | null
+    handleSetPaymentIntent : (value : string | null) => void
 }
 
 export const CartContext = createContext<CartContextType | null>(null)
@@ -20,17 +22,21 @@ interface Props {
 }
 
 export const CartContextProvider = (props : Props) => {
+
     const [cartTotalQty , setCartTotalQty] = useState(0);
     const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(null)
     const [cartTotalAmount,setCartTotalAmount] = useState(0)
+    const [paymentIntent, setPaymentIntent] = useState<string|null>(null)
 
-    console.log('qty',cartTotalQty)
-    console.log('amount',cartTotalAmount)
+
 
     useEffect (() => {
        const cartItems : any = localStorage.getItem("eShopCartItems") 
        const cartProducts : CartProductType[] | null = JSON.parse(cartItems)
+       const eshopPaymentIntent : any = localStorage.getItem('eshopPaymentIntent')
+       const paymentIntent : string | null = JSON.parse(eshopPaymentIntent)
        setCartProducts(cartProducts)
+       setPaymentIntent(paymentIntent)
     },[])
 
     useEffect(()=>{
@@ -144,7 +150,10 @@ export const CartContextProvider = (props : Props) => {
         localStorage.setItem("eShopCartItems", JSON.stringify(null))
     },[cartProducts])
 
-
+    const handleSetPaymentIntent = useCallback((val : string | null)=>{
+        setPaymentIntent(val)
+        localStorage.setItem('eshopPaymentIntent', JSON.stringify(val))
+    },[paymentIntent])
 
     const value = {
         cartTotalQty,
@@ -154,7 +163,9 @@ export const CartContextProvider = (props : Props) => {
         handleRemoveProductFromCart,
         handleCartQtyIncrease,
         handleCartQtyDecrease,
-        handleClearCart
+        handleClearCart,
+        handleSetPaymentIntent,
+        paymentIntent
         
 
     }

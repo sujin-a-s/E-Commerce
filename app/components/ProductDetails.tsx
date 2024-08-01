@@ -26,6 +26,7 @@ export type CartProductType = {
 }
 
 export type SelectedImgType = {
+    id : number,
     color : string,
     colorCode : string,
     image : string
