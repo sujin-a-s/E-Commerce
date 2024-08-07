@@ -53,3 +53,15 @@ axios async await with router in the sependency array , two entries in data when
 
 
 figured it out..simple...npm run buid ..npm run start ..then do chekout ..check in the db ...only on entry will be there ..then do stripe login in command prompt ..then click payment..easy peasy
+
+
+-----------------------------
+
+-->nav bar 
+firebase set up (dont forget ot pusblish rules)
+update prisma schema for products
+
+--> then write the api fpr adding products into the db (note : create an api end point imm after writing the prisma schema)
+
+
+---> then work on add product form
