@@ -41,7 +41,7 @@ const CartClient : React.FC<CartClientProps>= ({currentUser}) => {
                 <div className="col-span-2 justify-self-start">PRODUCT</div>
                 <div className= "justify-self-center">PRICE</div>
                 <div className="justify-self-center">QUANTITY</div>
-                <div className="jusitfy-self-end">TOTAL</div>
+                <div className="justify-self-end">TOTAL</div>
             </div>
             <div>
                 {cartProducts && cartProducts.map((item)=>{

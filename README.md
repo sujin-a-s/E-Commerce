@@ -46,3 +46,10 @@ prisma
 4)get the url
 
 5)npx prisma db push ...you will get env variavle are loaded from .env
+
+
+
+axios async await with router in the sependency array , two entries in data when chekcout..payment successful in stripe ..doesnot get updated with compelte and address when claikced on payment
+
+
+figured it out..simple...npm run buid ..npm run start ..then do chekout ..check in the db ...only on entry will be there ..then do stripe login in command prompt ..then click payment..easy peasy
